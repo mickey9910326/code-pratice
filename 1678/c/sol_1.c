@@ -49,4 +49,7 @@ char* interpret(char* command) {
         else if (ch == 'l') {
         }
     }
+
+    s[idx] = 0;
+    return s;
 }
