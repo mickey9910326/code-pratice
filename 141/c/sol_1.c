@@ -4,6 +4,8 @@
  * @brief leetcode 141. Linked List Cycle I
  * @date 2020.12.09
  *
+ * slow poninter and fast pointer
+ *
  * Time Complexity: O(n)
  * Space Complexity: 1
  */

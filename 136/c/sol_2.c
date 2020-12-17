@@ -14,6 +14,9 @@ int singleNumber(int* nums, int numsSize) {
     int j;
     int ret;
 
+    // -3e4 ~ 3e4 -> NUM
+    // -3e4 -1 -> 重複的index
+
     for (i = 0; i < numsSize; i++) {
         arr[i] = nums[i];
     }
@@ -23,6 +26,8 @@ int singleNumber(int* nums, int numsSize) {
             continue;
         }
 
+        //      1, 3, 5,      1
+        // -3e4-1, 3, 5, -3e4-1
         for (j = i + 1; j < numsSize; j++) {
             if (arr[i] == arr[j]) {
                 arr[i] = (-3e4 - 1);
