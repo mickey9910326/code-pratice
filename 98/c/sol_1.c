@@ -74,7 +74,7 @@ void tree_size_help(struct TreeNode* p, int* sz_p) {
  * @brief Sort all value of node in a binary tree to a given array.
  *
  * @param root Root of a binary tree.
- * @param arr Array to put value of node.
+ * @param arr Array to put value of node in.
  */
 void tree_sort(struct TreeNode* root, int* arr) {
     int idx = 0;
