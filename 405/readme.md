@@ -32,13 +32,13 @@
 
 1. 計算num的大小，得出hex string的長度。
 
-   這邊使用rshift來不斷左移數值，並累加長度變數`len`，
+   這邊使用rshift來不斷右移數值，並累加長度變數`len`，
    若數值變為0，則代表後續已經沒有有效的資料可以使用了，
    此時`len`便會是hex string的長度。
 
    因為gcc對rshift的操作方式如下，
-   - 如果是正數，左移並補零。
-   - 如果是負數，左移並補一。
+   - 如果是正數，右移並補零。
+   - 如果是負數，右移並補一。
 
    所以這邊將`num`強制轉型成`(unsigned int)`，並存放到`num2`中，再對`num2`進行迴圈位移操作。
    在gcc中`unsigned int`的型態放入負數`int`，並不會檢查其最高位元的複數符號，
@@ -166,7 +166,7 @@ char* toHex(int num) {
     int len = 0;  ///< Length of hex string's'.
     int idx;      ///< Index of hex string 's' to put ascii value in.
 
-    const hex_ascii[16] = {'0', '1', '2', '3', '4', '5', '6', '7',
+    const int hex_ascii[16] = {'0', '1', '2', '3', '4', '5', '6', '7',
                            '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     // zero expetion
@@ -204,7 +204,7 @@ char* toHex(int num) {
 }
 ```
 
-## 後計
+## 後記
 
 在看討論區的時候發現許多解答會直接`return "0"`，作為0的例外處理。
 
