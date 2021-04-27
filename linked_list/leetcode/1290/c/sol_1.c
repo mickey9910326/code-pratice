@@ -1,5 +1,5 @@
 /**
- * @file sol_v1.c
+ * @file sol_1.c
  * @author LiYu87 (mickey9910326@gmail.com)
  * @brief leetcode 1290. Convert Binary Number in a Linked List to Integer
  * @date 2021.04.27
