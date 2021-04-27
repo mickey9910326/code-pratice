@@ -1,0 +1,67 @@
+/**
+ * @file sol_1.c
+ * @author LiYu87 (mickey9910326@gmail.com)
+ * @brief 1171. Remove Zero Sum Consecutive Nodes from Linked List
+ * @date 2021.04.27
+ *
+ * Time Complexity: O(n^2)
+ * Space Complexity: O(1)
+ *
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+#include <stdlib.h>
+
+/**
+ * NOTE: this function doesn't free memory of useless nodes.
+ */
+struct ListNode* removeZeroSumSublists(struct ListNode* head) {
+    struct ListNode* pre_p = NULL;
+    struct ListNode* p = head;
+    struct ListNode* q = head;
+    int sum = 0;
+
+    while (p != NULL) {
+        sum = p->val;
+
+        q = p->next;
+        while (q != NULL && sum != 0) {
+            sum += q->val;
+
+            // NOTE: q will pointer to next node even though sum is zero
+            q = q->next;
+        }
+
+        if (sum == 0) {
+            // the sum of node p to pre node of q is zero
+            // remove them out of list
+
+            if (pre_p == NULL) {
+                // boundary case
+                // sum of head to pre node of q is zero
+                head = q;
+                p = q;
+
+                if (q == NULL) {
+                    // boundary case
+                    // sum of head to end is zero
+                    return NULL;
+                }
+            }
+            else {
+                pre_p->next = q;
+                p = q;
+            }
+        }
+        else {
+            pre_p = p;
+            p = p->next;
+        }
+    }
+
+    return head;
+}
