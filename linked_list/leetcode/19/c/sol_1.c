@@ -17,18 +17,19 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-void helper(struct ListNode* head, int& n) {
+void helper(struct ListNode* head, int* n) {
     if (head == NULL) {
         return;
     }
     helper(head->next, n);
-    n--;
+    (*n)--;
     if (*n == -1) {
         head->next = head->next->next;
     }
 }
 
 struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
-    helper(head, &n);
-    return head;
+    struct ListNode sentinel = {.next = head};
+    helper(&sentinel, &n);
+    return sentinel.next;
 }
