@@ -30,7 +30,7 @@ struct ListNode* reverseList(struct ListNode* head) {
         next = head->next;
         head->next = pre;
         pre = head;
-        head = head->next;
+        head = next;
     }
 
     return pre;
