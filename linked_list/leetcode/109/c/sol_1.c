@@ -4,8 +4,8 @@
  * @brief leetcode 109. Convert Sorted List to Binary Search Tree
  * @date 2021.05.03
  *
- * Time Complexity: O(n)
- * Space Complexity: O(n)
+ * Time Complexity: O(nlog(n))
+ * Space Complexity: O(log(n))
  *
  * Definition for singly-linked list.
  * struct ListNode {
